@@ -6,9 +6,9 @@
 * [CrescentApricot/acbpy](https://github.com/CrescentApricot/acbpy/blob/master/acbpy/handler.py)
 
 ## References
-**ACB Format**
+**HCA Format**
 * [Thealexbarney/VGAudio](https://github.com/Thealexbarney/VGAudio/blob/master/src/VGAudio/Containers/Hca/HcaReader.cs)
-* [subdiox/deresute](https://subdiox.github.io/deresute/resource/criware.html)
+* [subdiox/deresute](https://subdiox.github.io/deresute/resource/criware.html#hca-ファイルのフォーマット)
 
 **CRC16**
 * [plhx/ph-doc](https://github.com/plhx/ph-doc/blob/master/misc-crc16.rst)
