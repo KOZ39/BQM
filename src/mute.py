@@ -71,5 +71,5 @@ if __name__ == "__main__":
         if os.path.isfile(i):
             mute(i)
         elif os.path.isdir(i):
-            for file in glob.iglob(i + '/*.acb*'):
+            for file in glob.iglob(i + '/**/*.acb*', recursive=True):
                 mute(file)

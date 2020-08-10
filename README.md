@@ -1,6 +1,20 @@
 # BQM
 > Be Quiet Mingosu!
 
+## Usage
+Note: A backup is recommend as it will overwrite the file without creating a new file.
+```
+Drag and drop the acb file to mute.py
+```
+or
+```
+mute.py <path ...>
+// ACB file or directory
+
+# mute.py Welrod.acb.bytes
+# mute.py PSG1.acb.bytes Welrod.acb.bytes
+```
+
 ## Library
 * [summertriangle-dev/acb.py](https://github.com/summertriangle-dev/acb.py)
 * [CrescentApricot/acbpy](https://github.com/CrescentApricot/acbpy/blob/master/acbpy/handler.py)
