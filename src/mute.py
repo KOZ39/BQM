@@ -14,9 +14,9 @@ def parse_acb(acb_file):
 
     return [
         acb_format(
-            track = track,
-            binary = data_source.file_data_for_cue_id(track.memory_wav_id)
-        ) 
+            track=track,
+            binary=data_source.file_data_for_cue_id(track.memory_wav_id)
+        )
         for track in cue.tracks
     ]
 
@@ -24,7 +24,7 @@ def parse_acb(acb_file):
 def crc16(data):
     poly = 0x8005
     init = 0x0000
-    xorout = 0x0000
+    xor_out = 0x0000
 
     for x in data:
         init ^= x << 8
@@ -34,12 +34,12 @@ def crc16(data):
             else:
                 init = (init << 1) & 0xffff
 
-    return (init ^ xorout).to_bytes(2, 'big')
+    return (init ^ xor_out).to_bytes(2, 'big')
 
 
 def mute(acb_file, and_save=True):
     with open(acb_file, 'rb+') as f:
-        hca_list = [i.binary for i in parse_acb(f)]
+        hca_list = [hca.binary for hca in parse_acb(f)]
         f.seek(0)
         data = f.read()
 
