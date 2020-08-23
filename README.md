@@ -28,4 +28,4 @@ mute.py <path ...>
 * [plhx/ph-doc](https://github.com/plhx/ph-doc/blob/master/misc-crc16.rst)
 
 ## License
-[MIT](https://github.com/KOZ39/spineNx/blob/master/LICENSE)
+[MIT](https://github.com/KOZ39/BQM/blob/master/LICENSE)
