@@ -31,7 +31,8 @@ if __name__ == "__main__":
 
     '''
     target_hca_list.keys() - source_hca_list.keys()
-    overwrite_to_dummy()
+    for i in abc:
+        shutil.copy2('dummy.hca', os.path.join(target.split('.')[0], target_hca_list[i].zfill(5)) + '.hca')
     '''
 
     mute(source)
