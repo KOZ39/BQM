@@ -17,22 +17,28 @@ if __name__ == "__main__":
         sys.exit()
 
     with open(source, 'rb') as f:
-        source_hca_list = {hca.track.name.split('_', 1)[1]: hca.binary for hca in parse_acb(f)}
+        source_hca_dict = {hca.track.name.split('_', 1)[1]: hca.binary for hca in parse_acb(f)}
 
     with open(target, 'rb') as f:
-        target_hca_list = {hca.track.name.split('_', 1)[1]: str(hca.track.cue_id) for hca in parse_acb(f)}
+        target_hca_dict = {hca.track.name.split('_', 1)[1]: str(hca.track.cue_id) for hca in parse_acb(f)}
 
-    subprocess.call(['bin/AcbEditor.exe', target])
+    subprocess.call(['../bin/AcbEditor.exe', target])
 
-    for i in source_hca_list.keys():
-        if i in target_hca_list.keys():
-            with open(os.path.join(target.split('.')[0], target_hca_list[i].zfill(5)) + '.hca', 'wb') as f:
-                f.write(source_hca_list[i])
+    target = target.split('.')[0]
+
+    for i in source_hca_dict.keys():
+        if i in target_hca_dict.keys():
+            with open(os.path.join(target, target_hca_dict[i].zfill(5)) + '.hca', 'wb') as f:
+                f.write(source_hca_dict[i])
+
+    for i in target_hca_dict.keys() - source_hca_dict.keys():
+        shutil.copy2('dummy.hca', os.path.join(target, target_hca_dict[i].zfill(5)) + '.hca')
+
+    subprocess.call(['../bin/AcbEditor.exe', target])
 
     '''
-    target_hca_list.keys() - source_hca_list.keys()
-    for i in abc:
-        shutil.copy2('dummy.hca', os.path.join(target.split('.')[0], target_hca_list[i].zfill(5)) + '.hca')
+    with open(target + '.acb.bytes', 'ab') as f:
+        f.write(* b'\x00')
     '''
 
     mute(source)
