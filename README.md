@@ -2,9 +2,13 @@
 > Be Quiet Mingosu!
 
 ## Usage
-Note: A backup is recommend as it will overwrite the file without creating a new file.
+Note: A backup is recommend as it will overwrite the source file without creating a new file.
 ```
 Drag and drop the acb file to mute.py
+```
+
+```
+Drag and drop the source and target files to b2w.py
 ```
 or
 ```
@@ -13,6 +17,12 @@ mute.py <path ...>
 
 # mute.py Welrod.acb.bytes
 # mute.py PSG1.acb.bytes Welrod.acb.bytes
+```
+
+```
+b2w.py <source> <target>
+
+# b2w.py BrenMK.acb.bytes Welrod.acb.bytes
 ```
 
 ## Library

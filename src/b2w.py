@@ -12,7 +12,7 @@ if __name__ == "__main__":
     parser.add_argument('target', help="")
     args = parser.parse_args()
 
-    if os.path.getsize(source := args.source) > os.path.getsize(target := args.target):
+    if os.path.getsize(source := args.source) > (old_target_size := os.path.getsize(target := args.target)):
         # print('!')
         sys.exit()
 
@@ -32,13 +32,15 @@ if __name__ == "__main__":
                 f.write(source_hca_dict[i])
 
     for i in target_hca_dict.keys() - source_hca_dict.keys():
-        shutil.copy2('dummy.hca', os.path.join(target, target_hca_dict[i].zfill(5)) + '.hca')
+        shutil.copy2('sub/dummy.hca', os.path.join(target, target_hca_dict[i].zfill(5)) + '.hca')
 
     subprocess.call(['../bin/AcbEditor.exe', target])
 
-    '''
+    if (size_diff := old_target_size - os.path.getsize(target + '.acb.bytes')) < 0:
+        # print('!')
+        sys.exit()
+
     with open(target + '.acb.bytes', 'ab') as f:
-        f.write(* b'\x00')
-    '''
+        f.write(size_diff * b'\x00')
 
     mute(source)
