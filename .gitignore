@@ -1,2 +1,7 @@
 .idea
-src/sub/__pycache__
+
+__pycache__
+
+*.acb*
+*.hca
+!dummy.hca

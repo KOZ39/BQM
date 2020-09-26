@@ -2,7 +2,7 @@
 > Be Quiet Mingosu!
 
 ## Usage
-Note: A backup is recommend as it will overwrite the file without creating a new file.
+Note: A backup is recommend as it will overwrite the source file without creating a new file.
 ```
 Drag and drop the acb file to mute.py
 ```
